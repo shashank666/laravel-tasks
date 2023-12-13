@@ -63,4 +63,4 @@ jobs:
           app-name: 'opinedapp'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6D7527E335A347E5838912C1EE628638 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CF45765F2D99437482FEB187894461F1 }}
