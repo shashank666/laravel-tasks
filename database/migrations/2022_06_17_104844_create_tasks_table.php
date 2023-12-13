@@ -13,11 +13,13 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
+if(!Schema::hasTable('tasks')){
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
         });
+    }
     }
 
     /**
