@@ -33,6 +33,13 @@ Route::get('/', function () {
     }
 });
 
+Route::get('/delete-account', function () {
+    Log::info("Get /delete-account");
+    $startTime = microtime(true);
+    // Simple cache-aside logic
+   return view('welcome', ['elapsed' => microtime(true) - $startTime]);
+});
+
 /**
     * Add New Task
     */
