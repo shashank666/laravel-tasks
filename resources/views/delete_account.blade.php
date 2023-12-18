@@ -53,6 +53,28 @@
         .delete-button:hover {
             background-color: #dc2626;
         }
+
+        .form-container {
+            margin-top: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e0;
+            border-radius: 0.25rem;
+        }
     </style>
 </head>
 
@@ -68,9 +90,22 @@
         <p>
             <strong>Important:</strong> Make sure to backup any important data before deleting your account.
         </p>
-        <a href="{{ route('account.delete') }}" class="delete-button" onclick="return confirm('Are you sure you want to delete your account?');">
-            Delete My Account
-        </a>
+        <div class="form-container">
+            <form action="{{ route('account.delete.verify') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <label for="email" class="form-label">Enter the email associated with your account:</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+                <button type="submit" class="delete-button" onclick="return confirm('Are you sure you want to proceed?');">
+                    Proceed with Account Deletion
+                </button>
+            </form>
+        </div>
+        <p>
+            After providing your email, an OTP will be sent to your registered email address. Please verify the OTP to
+            complete the account deletion process.
+        </p>
     </div>
 </body>
 
