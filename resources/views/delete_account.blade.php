@@ -91,7 +91,7 @@
             <strong>Important:</strong> Make sure to backup any important data before deleting your account.
         </p>
         <div class="form-container">
-            <form action="{{  }}" method="post">
+            <form action="" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="email" class="form-label">Enter the email associated with your account:</label>
