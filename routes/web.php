@@ -37,7 +37,7 @@ Route::get('/delete-account', function () {
     Log::info("Get /delete-account");
     $startTime = microtime(true);
     // Simple cache-aside logic
-   return view('welcome', ['elapsed' => microtime(true) - $startTime]);
+   return view('delete_account', ['elapsed' => microtime(true) - $startTime]);
 });
 
 /**
