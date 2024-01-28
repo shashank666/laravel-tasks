@@ -40,6 +40,9 @@ Route::get('/delete-account', function () {
    return view('delete_account', ['elapsed' => microtime(true) - $startTime]);
 });
 
+Route::get('/privacy', function () {
+    return view('privacy');
+});
 /**
     * Add New Task
     */
