@@ -1,0 +1,16 @@
+.cke_wordcount {
+    display:block;
+    float:right;
+    margin-top:10px;
+    margin-bottom:8px;
+    margin-right:4px;
+    color: #212529;
+    padding: .4em;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+}
+
+.cke_wordcountLimitReached {color:red! important}

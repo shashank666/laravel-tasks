@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/posts</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/categories</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/threads</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/opinions</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/polls</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://www.weopined.com/sitemap/news</loc>
+    </sitemap>
+</sitemapindex>
