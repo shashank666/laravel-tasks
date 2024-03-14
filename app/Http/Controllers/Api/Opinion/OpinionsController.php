@@ -108,7 +108,7 @@ class OpinionsController extends Controller
             $from=Carbon::now()->subDays(30);
             $to=Carbon::now();
 
-            $trending_threads_ids=DB::table('thread_opinions')->where('is_active',1)->select('thread_id',DB::raw('COUNT(short_opinion_id) AS count'))->whereBetween('created_at',[$from,$to])->groupBy('thread_id')->orderBy('count','desc')->take(6)->get()->pluck('thread_id')->toArray();
+            $trending_threads_ids=DB::table('thread_opinions')->where('is_active',1)->select('thread_id',DB::raw('COUNT(short_opinion_id) AS count'))->groupBy('thread_id')->orderBy('count','desc')->take(6)->get()->pluck('thread_id')->toArray();
             $placeholders = implode(',',array_fill(0, count($trending_threads_ids), '?'));
             $trending_threads=Thread::select('id','name','views')->where('is_active',1)->whereIn('id',$trending_threads_ids)->withCount(['opinions','comment','followers'])->has('opinions', '>', 0)->orderByRaw("field(id,{$placeholders})", $trending_threads_ids)->take(6)->get();
 
@@ -277,7 +277,7 @@ class OpinionsController extends Controller
             $from=Carbon::now()->subDays(15);
             $to=Carbon::now();
 
-            $trending_threads_ids=DB::table('thread_opinions')->where('is_active',1)->select('thread_id',DB::raw('COUNT(short_opinion_id) AS count'))->whereBetween('created_at',[$from,$to])->groupBy('thread_id')->orderBy('count','desc')->take(6)->get()->pluck('thread_id')->toArray();
+            $trending_threads_ids=DB::table('thread_opinions')->where('is_active',1)->select('thread_id',DB::raw('COUNT(short_opinion_id) AS count'))->groupBy('thread_id')->orderBy('count','desc')->take(6)->get()->pluck('thread_id')->toArray();
             $placeholders = implode(',',array_fill(0, count($trending_threads_ids), '?'));
             $trending_threads=Thread::select('id','name','views')->where('is_active',1)->whereIn('id',$trending_threads_ids)->withCount(['opinions','comment','followers'])->has('opinions', '>', 0)->orderByRaw("field(id,{$placeholders})", $trending_threads_ids)->take(6)->get();
 
@@ -412,7 +412,6 @@ class OpinionsController extends Controller
 
                         $short_opinion_ids=ShortOpinion::where(['is_active'=>1,'community_id'=>0])
                         ->whereIn('user_id',$following_ids)
-                        ->whereBetween('created_at',[$from,$to])
                         ->take(6)
                         ->get();
     
@@ -1318,7 +1317,6 @@ class OpinionsController extends Controller
                 ->leftJoin('short_opinion_comments', 'short_opinion_comments.short_opinion_id', '=', 'short_opinions.id')
                 ->leftJoin('shares', 'shares.short_opinion_id', '=', 'short_opinions.id')
                 ->leftJoin('short_opinion_likes', 'short_opinion_likes.short_opinion_id', '=', 'short_opinions.id')
-                ->whereBetween('short_opinions.created_at', [$from, $to])
                 ->select('short_opinions.*', DB::raw('(COUNT(short_opinion_comments.id)) + (COUNT(shares.id)) + (COUNT(short_opinion_likes.id)) as count'))
                 ->groupBy('short_opinions.id')
                 ->orderBy('count', 'desc')
@@ -1415,7 +1413,6 @@ class OpinionsController extends Controller
                 ->leftJoin('short_opinion_comments', 'short_opinion_comments.short_opinion_id', '=', 'thread_opinions.short_opinion_id')
                 ->leftJoin('shares', 'shares.short_opinion_id', '=', 'thread_opinions.short_opinion_id')
                 ->leftJoin('short_opinion_likes', 'short_opinion_likes.short_opinion_id', '=', 'thread_opinions.short_opinion_id')
-                ->whereBetween('short_opinions.created_at',[$from,$to])
                 ->select('thread_opinions.*', DB::raw('(COUNT(short_opinion_comments.id)) + (COUNT(shares.id)) + (COUNT(short_opinion_likes.id)) as count'))
                 ->groupBy('thread_opinions.id')
                 ->orderBy('count','desc')
