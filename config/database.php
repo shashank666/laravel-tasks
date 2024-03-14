@@ -54,6 +54,10 @@ return [
             'prefix_indexes' => true,
             'strict' => false,
             'engine' => null,
+            'options'   => array(
+                PDO::MYSQL_ATTR_SSL_CA => '/path/to/BaltimoreCyberTrustRoot.crt.pem',
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+            ),
         ],
 
         'pgsql' => [
