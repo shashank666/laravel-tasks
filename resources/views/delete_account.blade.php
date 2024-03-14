@@ -80,7 +80,7 @@
 
 <body>
     <div class="container">
-        <div class="title">Delete Your Account - Opined Android App</div>
+        <div class="title">Permanently Delete Your Account - Opined Android App</div>
         <div class="message">
             <p>
                 We're sorry to see you go. If you choose to proceed, all your account information for the Opined Android App
