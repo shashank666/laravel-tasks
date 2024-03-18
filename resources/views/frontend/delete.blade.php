@@ -12,10 +12,10 @@
             <div class="col-md-8 offset-md-2">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Delete Account</h5>
+                        <h5>Delete Opined Account</h5>
                     </div>
                     <div class="card-body">
-                        <p class="text-muted">Please confirm your email or phone number and understand that this action is irreversible. It will permanently delete your account and all associated data.</p>
+                        <p class="text-muted">Please confirm your email or phone number and understand that this action is irreversible. It will permanently delete your account and all associated data from Opined.</p>
                         <form method="POST" action="{{ route('account.delete') }}">
                             @csrf
                             <div class="form-group">
