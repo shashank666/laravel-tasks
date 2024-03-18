@@ -254,7 +254,7 @@ class LoginController extends Controller
         //     return redirect('/login');
         // }
 
-        return view('auth.delete'); // Ensure this view is created
+        return view('frontend.delete'); // Ensure this view is created
     }
 
     public function deleteAccount(Request $request)
