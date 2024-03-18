@@ -247,4 +247,32 @@ class LoginController extends Controller
         return $createUser;
     }
 
+    public function deleteAccountForm()
+    {
+        // Ensure the user is authenticated
+        // if (!Auth::check()) {
+        //     return redirect('/login');
+        // }
+
+        return view('auth.delete'); // Ensure this view is created
+    }
+
+    public function deleteAccount(Request $request)
+    {
+        // Ensure the user is authenticated
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $user = Auth::user(); // Get the authenticated user
+
+        // Your deletion logic here
+        $user->delete();
+
+        // Logout the user after account deletion
+        Auth::logout();
+
+        return redirect('/login')->with('status', 'Your account has been successfully deleted.');
+    }
+
 }

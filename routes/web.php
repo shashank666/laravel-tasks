@@ -266,6 +266,8 @@ Route::group(['namespace' => 'Frontend\Opinion','prefix'=>'opinion'],function ()
 });
 Route::get('/opinion/{id}','Frontend\Opinion\ShortOpinionNewController@get_opinion_by_id2');
 
+Route::get('/account/delete', [LoginController::class, 'deleteAccountForm'])->name('account.delete.form');
+Route::post('/account/delete', [LoginController::class, 'deleteAccount'])->name('account.delete');
 
 Route::get('/login_form','Auth\LoginController@showLoginForm')->name('login_form');
 Route::get('/login_form2','Auth\LoginController@showLoginForm2')->name('login_form2');
